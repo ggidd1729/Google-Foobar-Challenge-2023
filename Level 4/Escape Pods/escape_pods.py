@@ -5,7 +5,10 @@ def solution(entrances, exits, path):
     # print("super entrance: ", super_entrance)
     # print("super exit: ", super_exit)
 
-    return
+    path.append(super_entrance)
+    path.append(super_exit)
+
+    return ford_fulkerson(path, -2, -1)
 
 # creates a virtual "super entrance" to simplify the multi-source, multi-sink max flow problem to single-
 # -source, single-sink max flow
@@ -30,6 +33,32 @@ def aggregate_exits(exits, path):
                 break
 
     return aggregated
+
+# breadth-first-search to find an augmenting from source to sink
+def bfs(path, source, sink, parent):
+    num_rooms = len(path)
+    visited = [False] * num_rooms
+    queue = []
+    queue.append(source)
+    visited[source] = True
+
+    while queue:
+        current = queue.pop(0)
+        for next in range(len(path[current])):
+            if not visited[next] and path[current][next] > 0:
+                queue.append(next)
+                visited[next] = True
+                parent[next] = current
+
+    if visited[sink]:
+        return True
+    return False
+
+#
+def ford_fulkerson(path, entrance, exit):
+    max_flow = 0
+
+    return max_flow
 
 
 # solution([0], [3], [[0, 7, 0, 0], [0, 0, 6, 0], [0, 0, 0, 8], [9, 0, 0, 0]]) 
