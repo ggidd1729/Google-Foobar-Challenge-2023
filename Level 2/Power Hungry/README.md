@@ -10,32 +10,32 @@ Each array of solar panels contains at least 1 and no more than 50 panels, and e
 Languages
 =========
 
-To provide a Python solution, edit solution.py
+To provide a Python solution, edit solution.py  
 To provide a Java solution, edit Solution.java
 
 Test cases
 ==========
-Your code should pass the following test cases.
+Your code should pass the following test cases.  
 Note that it may also be run against hidden test cases not shown here.
 
--- Python cases --
-Input:
-solution.solution([2, 0, 2, 2, 0])
-Output:
-    8
+-- Python cases --  
+Input:  
+solution.solution([2, 0, 2, 2, 0])  
+Output:  
+    8  
 
-Input:
-solution.solution([-2, -3, 4, -5])
-Output:
-    60
+Input:  
+solution.solution([-2, -3, 4, -5])  
+Output:  
+    60  
 
--- Java cases --
-Input:
-Solution.solution({2, 0, 2, 2, 0})
-Output:
-    8
+-- Java cases --  
+Input:  
+Solution.solution({2, 0, 2, 2, 0})  
+Output:  
+    8  
 
-Input:
-Solution.solution({-2, -3, 4, -5})
-Output:
-    60
+Input:  
+Solution.solution({-2, -3, 4, -5})  
+Output:  
+    60  
