@@ -22,32 +22,32 @@ Remember, to throw off Lambda's spies, Bunny HQ might include more than one cont
 Languages
 =========
 
-To provide a Python solution, edit solution.py
+To provide a Python solution, edit solution.py  
 To provide a Java solution, edit Solution.java
 
 Test cases
 ==========
-Your code should pass the following test cases.
+Your code should pass the following test cases.  
 Note that it may also be run against hidden test cases not shown here.
 
--- Python cases --
-Input:
-solution.solution([1, 2, 3, 4], 15)
-Output:
-    -1,-1
+-- Python cases --  
+Input:  
+solution.solution([1, 2, 3, 4], 15)  
+Output:  
+    -1,-1  
 
-Input:
-solution.solution([4, 3, 10, 2, 8], 12)
-Output:
-    2,3
+Input:  
+solution.solution([4, 3, 10, 2, 8], 12)  
+Output:  
+    2,3  
 
--- Java cases --
-Input:
-Solution.solution({1, 2, 3, 4}, 15)
-Output:
-    -1,-1
+-- Java cases --  
+Input:  
+Solution.solution({1, 2, 3, 4}, 15)  
+Output:  
+    -1,-1  
 
-Input:
-Solution.solution({4, 3, 10, 2, 8}, 12)
-Output:
+Input:  
+Solution.solution({4, 3, 10, 2, 8}, 12)  
+Output:  
     2,3
