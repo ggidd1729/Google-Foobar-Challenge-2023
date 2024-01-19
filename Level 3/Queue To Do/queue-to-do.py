@@ -26,6 +26,3 @@ def xor_to_n(n):
         return n + 1
     else:
         return 0
-    
-
-# https://www.geeksforgeeks.org/find-xor-of-numbers-from-the-range-l-r/

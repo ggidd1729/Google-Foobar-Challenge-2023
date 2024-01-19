@@ -55,3 +55,6 @@ Input:
 solution.solution(17, 4)  
 Output:  
 14
+
+resource I used:  
+    # https://www.geeksforgeeks.org/find-xor-of-numbers-from-the-range-l-r/

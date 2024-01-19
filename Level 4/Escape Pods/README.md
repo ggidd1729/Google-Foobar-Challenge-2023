@@ -58,3 +58,6 @@ Input:
 solution.solution([0, 1], [4, 5], [[0, 0, 4, 6, 0, 0], [0, 0, 5, 2, 0, 0], [0, 0, 0, 0, 4, 4], [0, 0, 0, 0, 6, 6], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]])  
 Output:  
 16
+
+resource I used:  
+    https://python.algorithmexamples.com/web/networking_flow/ford_fulkerson.html
