@@ -2,12 +2,12 @@ def solution(entrances, exits, path):
     append_super_entrance(entrances, path)
     append_super_exit(exits, path)
 
-    print(path)
+    max_flow = ford_fulkerson(path, -2, -1)
 
-    return ford_fulkerson(path, -2, -1, entrances)
+    return max_flow
 
-# creates a virtual "super entrance" to simplify the multi-source, multi-sink max flow problem to single-
-# source, single-sink max flow, appends it to path and adjust the path nodes (rooms)
+# creates a virtual "super entrance" to simplify the multi-entrance, multi-exit max flow problem to single-
+# entrance, single-exit max flow, appends it to path and adjust the path nodes (rooms)
 def append_super_entrance(entrances, path):
     num_rooms = len(path[0])
     super_entrance = [0] * num_rooms
@@ -20,8 +20,8 @@ def append_super_entrance(entrances, path):
 
     return
 
-# creates a virtual "super exit" to simplify the multi-source, multi-sink max flow problem to single-
-# source, single-sink max flow, appends it to path and adjust the path nodes (rooms)
+# creates a virtual "super exit" to simplify the multi-entrance, multi-exit max flow problem to single-
+# entrance, single-exit max flow, appends it to path and adjust the path nodes (rooms)
 def append_super_exit(exits, path):
     num_rooms = len(path[0])
     super_exit = [0] * num_rooms
@@ -36,13 +36,13 @@ def append_super_exit(exits, path):
 
     return
 
-# breadth-first-search to find an augmenting from source to sink
-def bfs(path, source, sink, parent, entrances):
+# breadth-first-search to find an augmenting path from entrance to exit
+def bfs(path, entrance, exit, parent):
     num_rooms = len(path)
     visited = [False] * num_rooms
     queue = []
-    queue.append(source)
-    initialise_visited(visited, source, entrances)
+    queue.append(entrance)
+    visited[entrance] = True
 
     while queue:
         current = queue.pop(0)
@@ -51,29 +51,32 @@ def bfs(path, source, sink, parent, entrances):
                 queue.append(next)
                 visited[next] = True
                 parent[next] = current
-    #print(visited)
-    if visited[sink]:
+                
+    if visited[exit]:
         return True
     return False
 
-#
-def ford_fulkerson(path, entrance, exit, entrances):
-    parent = [-1]* len(path)
+# Ford-Fulkerson algorithm for computing maximum flow in a flow network
+def ford_fulkerson(path, entrance, exit):
+    num_rooms = len(path)
+    parent = [-1] * num_rooms
     max_flow = 0
 
-    bfs(path, entrance, exit, parent, entrances)
+    while bfs(path, entrance, exit, parent):
+        min_flow = float("Inf")
 
-    #print(parent)
+        current_room = exit
+        while current_room != entrance:
+            min_flow = min(min_flow, path[parent[current_room]][current_room])
+            current_room = parent[current_room]
+ 
+        max_flow += min_flow
+
+        current_room = exit
+        while current_room != entrance:
+            previous_room = parent[current_room]
+            path[previous_room][current_room] -= min_flow
+            path[current_room][previous_room] += min_flow
+            current_room = parent[current_room]
 
     return max_flow
-
-#
-def initialise_visited(visited, source, entrances):
-    visited[source] = True
-    for entrance in entrances:
-        visited[entrance] = True
-
-
-
-# solution([0], [3], [[0, 7, 0, 0], [0, 0, 6, 0], [0, 0, 0, 8], [9, 0, 0, 0]]) 
-# solution([0, 1], [4, 5], [[0, 0, 4, 6, 0, 0], [0, 0, 5, 2, 0, 0], [0, 0, 0, 0, 4, 4], [0, 0, 0, 0, 6, 6], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]])  
