@@ -14,7 +14,9 @@ floor(3*sqrt(2)) +
 floor(4*sqrt(2)) +  
 floor(5*sqrt(2))  
 = 1+2+4+5+7 = 19  
-so the function would return "19".  
+so the function would return "19".    
+
+str_n will be a positive integer between 1 and 10^100, inclusive. Since n can be very large (up to 101 digits!), using just sqrt(2) and a loop won't work. Sometimes, it's easier to take a step back and concentrate not on what you have in front of you, but on what you don't.  
 
 Languages  
 =========  
