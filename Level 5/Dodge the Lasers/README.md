@@ -48,4 +48,9 @@ Output:
 Input:  
 solution.solution('77')  
 Output:  
-4208
+4208  
+
+resource I used: 
+https://math.stackexchange.com/questions/2052179/how-to-find-sum-i-1n-left-lfloor-i-sqrt2-right-rfloor-a001951-a-beatty-s  
+
+https://oeis.org/A194102
